@@ -2,13 +2,16 @@ package com.yhkim.apiexam_kt20191228
 
 import android.os.Bundle
 import android.widget.Toast
+import com.yhkim.apiexam_kt20191228.adapters.UserAdapter
 import com.yhkim.apiexam_kt20191228.datas.User
 import com.yhkim.apiexam_kt20191228.utils.ConnectServer
+import kotlinx.android.synthetic.main.activity_main.*
 import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
 
     val userList = ArrayList<User>()
+    var mUserAdapter:UserAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +24,8 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        mUserAdapter = UserAdapter(mContext, R.layout.user_list_item, userList)
+        userListView.adapter = mUserAdapter
     }
 
     override fun onResume() {
@@ -42,7 +47,7 @@ class MainActivity : BaseActivity() {
                             userList.add(userDataObject)
                         }
 
-                        //adapter 작업
+                        mUserAdapter?.notifyDataSetChanged()
 
                     }
                     else {
