@@ -5,28 +5,33 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="center_horizontal"
+    android:padding="10dp"
     tools:context=".UserInfoActivity">
 
     <TextView
+        android:id="@+id/userIdTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="아이디 자리"
         android:layout_marginTop="10dp" />
     <TextView
+        android:id="@+id/userNameTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="이름 자리"
         android:layout_marginTop="10dp" />
     <TextView
+        android:id="@+id/userPhoneNumTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:text="폰번 자리"
         android:layout_marginTop="10dp" />
     <TextView
+        android:id="@+id/userMemoTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"

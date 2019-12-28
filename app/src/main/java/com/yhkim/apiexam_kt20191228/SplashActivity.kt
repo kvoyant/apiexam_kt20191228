@@ -38,7 +38,7 @@ class SplashActivity : BaseActivity() {
             }
             else {
 //            저장된 토큰 있음 , 메인화면으로 이동
-                val intent = Intent(mContext, MainActivity::class.java)
+                val intent = Intent(mContext, MainActivity::class.java)//MyProfileActivity
                 startActivity(intent)
                 finish()
             }
