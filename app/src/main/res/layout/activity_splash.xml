@@ -9,9 +9,10 @@
     tools:context=".SplashActivity">
     
     <ImageView
+        android:id="@+id/splashImgview"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/orange01"/>
+        android:src="@drawable/gugucat01"/>
 
 
 </LinearLayout>

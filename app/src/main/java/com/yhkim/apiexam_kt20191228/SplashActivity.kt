@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import com.bumptech.glide.Glide
 import com.yhkim.apiexam_kt20191228.utils.ContextUtil
+import kotlinx.android.synthetic.main.activity_splash.*
 
 class SplashActivity : BaseActivity() {
 
@@ -19,6 +21,8 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun setValues() {
+        Glide.with(mContext).load("https://ncache.ilbe.com/files/attach/new/20160302/377678/2709220375/7625736155/8726846255829e6a14551b4b87e0c086.gif")
+            .into(splashImgview)
         openProperActivity()
     }
 
@@ -37,7 +41,7 @@ class SplashActivity : BaseActivity() {
                 startActivity(intent)
                 finish()
             }
-        }, 1500)
+        }, 3000)
     }
 
 }
