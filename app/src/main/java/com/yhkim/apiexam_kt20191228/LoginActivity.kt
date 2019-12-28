@@ -62,7 +62,7 @@ class LoginActivity : BaseActivity() {
 
 //                            받아온 토큰을 내 폰에 반영구 저장
                             ContextUtil.setUserToken(mContext, token)
-                            val inent = Intent(mContext, MainActivity::class.java)
+                            val inent = Intent(mContext, MyProfileActivity::class.java)
                             startActivity(intent)
                             finish()
                         }

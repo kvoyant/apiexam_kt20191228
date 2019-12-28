@@ -1,7 +1,6 @@
 package com.yhkim.apiexam_kt20191228
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.bumptech.glide.Glide
@@ -39,7 +38,7 @@ class SplashActivity : BaseActivity() {
             }
             else {
 //            저장된 토큰 있음 , 메인화면으로 이동
-                val intent = Intent(mContext, MainActivity::class.java)
+                val intent = Intent(mContext, MyProfileActivity::class.java)
                 startActivity(intent)
                 finish()
             }

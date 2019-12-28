@@ -2,7 +2,6 @@ package com.yhkim.apiexam_kt20191228
 
 import android.content.DialogInterface
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -10,13 +9,13 @@ import androidx.appcompat.app.AlertDialog
 import com.yhkim.apiexam_kt20191228.datas.User
 import com.yhkim.apiexam_kt20191228.utils.ConnectServer
 import com.yhkim.apiexam_kt20191228.utils.ContextUtil
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_my_profile.*
 import org.json.JSONObject
 
-class MainActivity : BaseActivity() {
+class MyProfileActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_my_profile)
         setupEvents()
         setValues()
     }
@@ -69,7 +68,7 @@ class MainActivity : BaseActivity() {
                         loginIdTxt.text = loginUser.loginId
 
                         //무한루프 !! 주의
-//                        val intent = Intent(mContext, MainActivity::class.java)
+//                        val intent = Intent(mContext, MyProfileActivity::class.java)
 //                        startActivity(intent)
 //                        finish()
 
