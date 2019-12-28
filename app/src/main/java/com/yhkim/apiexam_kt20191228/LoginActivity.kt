@@ -60,7 +60,7 @@ class LoginActivity : BaseActivity() {
                             var token = data.getString("token")
 
 //                            받아온 토큰을 내 폰에 반영구 저장
-                            ContextUtil
+                            ContextUtil.setUserToken(mContext, token)
                         }
                         else {
                             val message = json.getString("message")
