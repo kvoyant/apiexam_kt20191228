@@ -17,6 +17,38 @@ class ConnectServer {
 //        연결할 서버의 주소 (도메인 / IP )를 변수로 저장.
         val BASE_URL = "http://192.168.0.10:5000"
 
+
+
+//        사용자목록 조회
+
+        fun getRequestUserList(context: Context, handler: JsonResponseHandler?) {
+            val client = OkHttpClient()
+
+            val urlBuilder = HttpUrl.parse("${BASE_URL}/admin/user")!!.newBuilder()
+            urlBuilder.addEncodedQueryParameter("acitive", "ALL")//get 방식 파리미터 있을경우
+            val url = urlBuilder.build().toString()
+
+            val request = Request.Builder()
+                .url(url)
+//                .header("X-Http-Token", ContextUtil.getUserToken(context))
+                .build()
+
+            client.newCall(request).enqueue(object : Callback{
+                override fun onFailure(call: Call, e: IOException) {
+                    Log.d("서버 연결 실패", e.localizedMessage)
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val body = response.body()!!.string()
+                    val json = JSONObject(body) //string으로 저장된 응답을 JSON양식으로 가공.
+
+                    handler?.onResponse(json) //? handler가 있다면 (널이 아니라면)
+                }
+            })
+        }
+
+
+
 /*
 {
     "code": 200,
