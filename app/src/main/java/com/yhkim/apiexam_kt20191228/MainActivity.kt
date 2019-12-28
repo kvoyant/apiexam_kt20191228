@@ -1,10 +1,12 @@
 package com.yhkim.apiexam_kt20191228
 
 import android.content.DialogInterface
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.yhkim.apiexam_kt20191228.utils.ContextUtil
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity() {
@@ -27,6 +29,12 @@ class MainActivity : BaseActivity() {
             alert.setMessage("정말 로그아웃 하시겠습니까?")
             alert.setPositiveButton("확인", DialogInterface.OnClickListener { dialog, which ->
                 Toast.makeText(mContext, "로그아웃", Toast.LENGTH_SHORT).show()
+
+                ContextUtil.setUserToken(mContext, "") //로그아웃( 빈값으로 토큰값 세팅)
+
+                val intent = Intent(mContext, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
             })
             alert.setNegativeButton("취소", null)
             alert.show()
