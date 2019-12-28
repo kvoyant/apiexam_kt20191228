@@ -63,6 +63,12 @@ class MainActivity : BaseActivity() {
 
                         nameTxt.text = userName
                         phoneTxt.text = userPhoneNum
+
+                        //무한루프 !! 주의
+//                        val intent = Intent(mContext, MainActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+
                     }
                     else {
                         Toast.makeText(mContext, "서버에 문제가 있습니다.", Toast.LENGTH_SHORT).show()
