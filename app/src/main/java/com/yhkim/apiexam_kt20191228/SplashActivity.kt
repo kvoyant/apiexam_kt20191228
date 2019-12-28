@@ -21,7 +21,9 @@ class SplashActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        Glide.with(mContext).load("https://ncache.ilbe.com/files/attach/new/20160302/377678/2709220375/7625736155/8726846255829e6a14551b4b87e0c086.gif")
+        Glide.with(mContext)
+//            .load("https://ncache.ilbe.com/files/attach/new/20160302/377678/2709220375/7625736155/8726846255829e6a14551b4b87e0c086.gif")
+            .load(R.drawable.gugucat01)
             .into(splashImgview)
         openProperActivity()
     }
@@ -41,7 +43,7 @@ class SplashActivity : BaseActivity() {
                 startActivity(intent)
                 finish()
             }
-        }, 3000)
+        }, 1500)
     }
 
 }

@@ -4,10 +4,13 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.yhkim.apiexam_kt20191228.utils.ConnectServer
 import com.yhkim.apiexam_kt20191228.utils.ContextUtil
 import kotlinx.android.synthetic.main.activity_main.*
+import org.json.JSONObject
 
 class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,6 +46,31 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
+
+        ConnectServer.getRequestMyInfo(mContext, object : ConnectServer.JsonResponseHandler {
+            override fun onResponse(json: JSONObject) {
+                Log.d("내정보 서버응답", json.toString())
+//내정보 서버응답: {"code":200,"message":"메인화면 조회 성공","data":{"user":{"id":3,"login_id":"test_user","name":"Tester","phone":"01092924848","memo":"tttt","category":{"id":10,"title":"ㄷㄷㄱ","color":"#FF8EFF72"},"is_admin":true,"start_date":null,"expire_date":"2019-09-30","created_at":"2019-09-07 07:32:52","level":1}}}
+
+                val code = json.getInt("code")
+
+                runOnUiThread {
+                    if(code == 200) {
+                        val data = json.getJSONObject("data")
+                        val user = data.getJSONObject("user")
+                        val userName = user.getString("name")
+                        val userPhoneNum = user.getString("phone")
+
+                        nameTxt.text = userName
+                        phoneTxt.text = userPhoneNum
+                    }
+                    else {
+                        Toast.makeText(mContext, "서버에 문제가 있습니다.", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+        })
     }
 
 }
