@@ -40,6 +40,38 @@ class ConnectServer {
                 "expire_date": null,
                 "created_at": "2019-12-22 05:41:26"
             },
+           {
+                "id": 75,
+                "login_id": "test001",
+                "name": "1111",
+                "phone": "1111",
+                "memo": "새 회원",
+                "category": {
+                    "id": 1,
+                    "title": "일반매장",
+                    "color": "#FF0000"
+                },
+                "is_admin": false,
+                "start_date": null,
+                "expire_date": null,
+                "created_at": "2019-12-22 04:48:34"
+            },
+            {
+                "id": 74,
+                "login_id": "t1",
+                "name": "t1",
+                "phone": "8187383",
+                "memo": "새 회원",
+                "category": {
+                    "id": 1,
+                    "title": "일반매장",
+                    "color": "#FF0000"
+                },
+                "is_admin": false,
+                "start_date": null,
+                "expire_date": null,
+                "created_at": "2019-12-22 04:34:25"
+            },
             {
                 "id": 1,
                 "login_id": "cho881020",
