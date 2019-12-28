@@ -48,6 +48,10 @@ class MainActivity : BaseActivity() {
 
                 runOnUiThread {
                     if(code == 200 ) {
+
+
+                        userList.clear()//데이터 중첩 방지
+
                         val data = json.getJSONObject("data")
                         val users = data.getJSONArray("users")
 
