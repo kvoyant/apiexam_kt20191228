@@ -1,6 +1,8 @@
 package com.yhkim.apiexam_kt20191228
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.yhkim.apiexam_kt20191228.adapters.UserAdapter
 import com.yhkim.apiexam_kt20191228.datas.User
@@ -21,6 +23,13 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setupEvents() {
+        userListView.setOnItemClickListener { parent, view, position, id ->
+            val userData = userList.get(position)
+            val intent = Intent(mContext, UserInfoActivity::class.java)
+            intent.putExtra("userInfo", userData)
+            startActivity(intent)
+        }
+
     }
 
     override fun setValues() {
@@ -33,12 +42,14 @@ class MainActivity : BaseActivity() {
 
         ConnectServer.getRequestUserList(mContext, object : ConnectServer.JsonResponseHandler {
             override fun onResponse(json: JSONObject) {
+                Log.d("응답", json.toString())
+
                 val code = json.getInt("code")
 
                 runOnUiThread {
                     if(code == 200 ) {
                         val data = json.getJSONObject("data")
-                        val users = json.getJSONArray("users")
+                        val users = data.getJSONArray("users")
 
                         for(i in 0..users.length() - 1 ) {
                             val userJson = users.getJSONObject(i)

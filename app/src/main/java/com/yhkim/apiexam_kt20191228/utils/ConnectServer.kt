@@ -67,7 +67,7 @@ class ConnectServer {
             val client = OkHttpClient()
 
             val urlBuilder = HttpUrl.parse("${BASE_URL}/admin/user")!!.newBuilder()
-            urlBuilder.addEncodedQueryParameter("acitive", "ALL")//get 방식 파리미터 있을경우
+            urlBuilder.addEncodedQueryParameter("active", "ALL")//get 방식 파리미터 있을경우
             val url = urlBuilder.build().toString()
 
             val request = Request.Builder()
