@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.yhkim.apiexam_kt20191228.datas.User
 import com.yhkim.apiexam_kt20191228.utils.ConnectServer
 import com.yhkim.apiexam_kt20191228.utils.ContextUtil
 import kotlinx.android.synthetic.main.activity_main.*
@@ -61,8 +62,11 @@ class MainActivity : BaseActivity() {
                         val userName = user.getString("name")
                         val userPhoneNum = user.getString("phone")
 
-                        nameTxt.text = userName
-                        phoneTxt.text = userPhoneNum
+                        val loginUser = User.getUserFromJson(user)
+
+                        nameTxt.text = loginUser.name//nameTxt.text = userName
+                        phoneTxt.text = loginUser.phoneNum//phoneTxt.text = userPhoneNum
+                        loginIdTxt.text = loginUser.loginId
 
                         //무한루프 !! 주의
 //                        val intent = Intent(mContext, MainActivity::class.java)
